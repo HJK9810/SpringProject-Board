@@ -10,5 +10,5 @@ public interface BoardMapper {
 	public BoardItem viewOne(Long id); 
 	public List<BoardItem> onePage();
 	public int editOne(BoardItem item);
-	public void deleteOne(Long id);
+	public int deleteOne(Long id);
 }

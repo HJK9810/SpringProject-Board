@@ -17,7 +17,12 @@
 	
 	<!-- update data -->
 	<update id="editOne">
-		update boardItem set title = #{title}, text = #{text} where ID = #{ID};
+		update boardItem set title = #{title}, text = #{text} where ID = #{ID}
 	</update>
+	
+	<!-- delete data -->
+	<delete id="deleteOne">
+		delete from boardItem where ID = #{ID}
+	</delete>
 
 </mapper>

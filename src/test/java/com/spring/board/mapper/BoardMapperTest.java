@@ -50,4 +50,10 @@ public class BoardMapperTest {
     	 
     	 assertEquals(result, 1);
      }
+     
+     @Test
+     public void deleteTest() {
+    	 int result = mapper.deleteOne(3L); // delete ID
+    	 assertEquals(result, 1);
+     }
 }
