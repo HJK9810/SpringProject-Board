@@ -3,6 +3,7 @@ package com.spring.board.mapper;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,41 +20,54 @@ public class BoardMapperTest {
      @Autowired
      private BoardMapper mapper;
  
-     @Test
-     public void testEnroll() {
-         
-         BoardItem item = new BoardItem();
-         Date date = new Date();
-         
-         item.setTitle("mapper test");
-         item.setText("mapper test");
-         item.setEditer("mapper test");
-         item.setDate(date);
-         item.setPasswd("mapper test");
-         
-         mapper.dataInput(item);
-     }
+//     @Test
+//     public void testEnroll() {
+//         
+//         BoardItem item = new BoardItem();
+//         Date date = new Date();
+//         
+//         item.setTitle("mapper test");
+//         item.setText("mapper test");
+//         item.setEditer("mapper test");
+//         item.setDate(date);
+//         item.setPasswd("mapper test");
+//         
+//         mapper.dataInput(item);
+//     }
+     
+//     @Test
+//     public void viewOneTest() {
+//    	 BoardItem item = mapper.viewOne(1L);
+//    	 System.out.println(item.toString());
+//     }
+     
+//     @Test
+//     public void updateTest() {
+//    	 BoardItem item = new BoardItem();
+//    	 item.setText("update test");
+//    	 item.setTitle("update Test");
+//    	 item.setID(1L);
+//    	 int result = mapper.editOne(item);
+//    	 
+//    	 assertEquals(result, 1);
+//     }
+     
+//     @Test
+//     public void deleteTest() {
+//    	 int result = mapper.deleteOne(3L); // delete ID
+//    	 assertEquals(result, 1);
+//     }
+     
+//     @Test
+//     public void countTest() {
+//    	 assertEquals(mapper.totalCount(), 3);
+//     }
      
      @Test
-     public void viewOneTest() {
-    	 BoardItem item = mapper.viewOne(1L);
-    	 System.out.println(item.toString());
-     }
-     
-     @Test
-     public void updateTest() {
-    	 BoardItem item = new BoardItem();
-    	 item.setText("update test");
-    	 item.setTitle("update Test");
-    	 item.setID(1L);
-    	 int result = mapper.editOne(item);
-    	 
-    	 assertEquals(result, 1);
-     }
-     
-     @Test
-     public void deleteTest() {
-    	 int result = mapper.deleteOne(3L); // delete ID
-    	 assertEquals(result, 1);
+     public void ListTest() {
+    	 List<BoardItem> list = mapper.onePage();
+    	 for(BoardItem item : list) {
+    		 System.out.println(item.toString());
+    	 }
      }
 }

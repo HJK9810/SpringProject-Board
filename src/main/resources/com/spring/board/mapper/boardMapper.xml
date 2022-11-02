@@ -10,9 +10,20 @@
 		insert into boardItem(title, text, editer, passwd, date) values (#{title}, #{text}, #{editer}, #{passwd}, #{date})
 	</insert>
 	
+	<!-- totalCount of all items -->
+	<select id="totalCount" resultType="int">
+		select count(*) from boardItem;
+	</select>
+	
 	<!-- view one data -->
 	<select id="viewOne" resultType="com.spring.board.domain.BoardItem">
 		select * from boardItem where ID=#{id}
+	</select>
+	
+	<!-- view All items -->
+	<!-- after will apply pagination not now -->
+	<select id="onePage" resultType="com.spring.board.domain.BoardItem">
+		select * from boardItem
 	</select>
 	
 	<!-- update data -->
