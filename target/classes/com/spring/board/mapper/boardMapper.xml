@@ -9,5 +9,10 @@
 	<insert id="dataInput">
 		insert into boardItem(title, text, editer, passwd, date) values (#{title}, #{text}, #{editer}, #{passwd}, #{date})
 	</insert>
+	
+	<!-- view one data -->
+	<select id="viewOne" resultType="com.spring.board.domain.BoardItem">
+		select * from boardItem where ID=#{id}
+	</select>
 
 </mapper>

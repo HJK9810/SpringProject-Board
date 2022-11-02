@@ -29,9 +29,11 @@ public class BoardMapperTest {
          item.setDate(date);
          item.setPasswd("mapper test");
          
-         mapper.dataInput(item);;
-         
+         mapper.dataInput(item);
      }
      
- 
+     @Test
+     public void viewOneTest() {
+    	 BoardItem item = mapper.viewOne(1L);
+     }
 }
