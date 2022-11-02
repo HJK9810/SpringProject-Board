@@ -1,5 +1,7 @@
 package com.spring.board.domain;
 
+import java.util.Date;
+
 public class BoardItem {
 	private Long ID;
 	private String title;
@@ -7,6 +9,7 @@ public class BoardItem {
 	private Long viewCnt;
 	private String editer;
 	private String passwd;
+	private Date date;
 	
 	public Long getID() {
 		return ID;
@@ -43,5 +46,11 @@ public class BoardItem {
 	}
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

@@ -2,6 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.spring.board.mapper.boardMapper">
+<mapper namespace="com.spring.board.mapper.BoardMapper">
+
+	<!-- insert id="boardMapper속 메소드명" -->
+	<!-- data insert -->
+	<insert id="dataInput">
+		insert into boardItem(title, text, editer, passwd, date) values (#{title}, #{text}, #{editer}, #{passwd}, #{date})
+	</insert>
 
 </mapper>
