@@ -1,5 +1,7 @@
 package com.spring.board.mapper;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Date;
 
 import org.junit.Test;
@@ -35,5 +37,17 @@ public class BoardMapperTest {
      @Test
      public void viewOneTest() {
     	 BoardItem item = mapper.viewOne(1L);
+    	 System.out.println(item.toString());
+     }
+     
+     @Test
+     public void updateTest() {
+    	 BoardItem item = new BoardItem();
+    	 item.setText("update test");
+    	 item.setTitle("update Test");
+    	 item.setID(1L);
+    	 int result = mapper.editOne(item);
+    	 
+    	 assertEquals(result, 1);
      }
 }

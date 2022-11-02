@@ -14,5 +14,10 @@
 	<select id="viewOne" resultType="com.spring.board.domain.BoardItem">
 		select * from boardItem where ID=#{id}
 	</select>
+	
+	<!-- update data -->
+	<update id="editOne">
+		update boardItem set title = #{title}, text = #{text} where ID = #{ID};
+	</update>
 
 </mapper>

@@ -53,4 +53,9 @@ public class BoardItem {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	@Override
+	public String toString() {
+		return "BoardItem [ID=" + ID + ", title=" + title + ", text=" + text + ", viewCnt=" + viewCnt + ", editer="
+				+ editer + ", passwd=" + passwd + ", date=" + date + "]";
+	}
 }
