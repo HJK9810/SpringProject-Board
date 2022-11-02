@@ -1,4 +1,4 @@
-package com.spring.board;
+package com.spring.board.web;
 
 import java.text.DateFormat;
 import java.util.Date;
