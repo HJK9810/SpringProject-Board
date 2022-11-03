@@ -25,10 +25,10 @@
 	<select id="onePage" resultType="com.spring.board.domain.BoardItem">
 		select * from boardItem
 	</select>
-	
+		
 	<!-- update data -->
 	<update id="editOne">
-		update boardItem set title = #{title}, text = #{text} where ID = #{ID}
+		update boardItem set title = #{title}, text = #{text}, viewCnt = #{viewCnt} where ID = #{ID}
 	</update>
 	
 	<!-- delete data -->
