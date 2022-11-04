@@ -1,12 +1,12 @@
 package com.spring.board.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.spring.board.domain.Pagination;
 import com.spring.board.mapper.BoardMapper;
 
-@Service
+@Repository
 public class PaginationServiceImpl implements PaginationService {
 
 	@Autowired

@@ -13,5 +13,5 @@ public interface BoardMapper {
 	public int editOne(BoardItem item);
 	public int deleteOne(Long id);
 	
-	public int totalCount();
+	public int totalSize();
 }

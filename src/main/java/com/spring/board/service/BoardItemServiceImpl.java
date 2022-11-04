@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.spring.board.domain.BoardItem;
 import com.spring.board.domain.Pagination;
 import com.spring.board.mapper.BoardMapper;
 
-@Service
+@Repository
 public class BoardItemServiceImpl implements BoardItemService {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class BoardItemServiceImpl implements BoardItemService {
 		item.setDate(date);
 		mapper.dataInput(item);
 	}
-	
+
 	@Override
 	public BoardItem editView(Long id) {
 		BoardItem item = mapper.viewOne(id);
@@ -54,7 +54,8 @@ public class BoardItemServiceImpl implements BoardItemService {
 	@Override
 	public List<BoardItem> onePage(int nowPage, int pageSize) {
 		// nowPage : 현 페이지, pageSize : 한 페이지당 아이템수
-		Pagination page = paginationService.getPagination(nowPage, pageSize, mapper.totalCount());
+		int totaSize = mapper.totalSize();
+		Pagination page = paginationService.getPagination(nowPage, pageSize, totaSize);
 
 		return mapper.onePage(page);
 	}

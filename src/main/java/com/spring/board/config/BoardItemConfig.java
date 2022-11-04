@@ -11,18 +11,19 @@ import com.spring.board.web.BoardItemController;
 
 @Configuration
 public class BoardItemConfig {
-	@Bean
-	public BoardItemService boardItemService() {
-		return new BoardItemServiceImpl();
-	}
-	
-	@Bean
-	public BoardItemController boardItemController() {
-		return new BoardItemController();
-	}
-	
-	@Bean
-	public PaginationService paginationService() {
-		return new PaginationServiceImpl();
-	}
+
+//	@Bean
+//	public BoardItemController boardItemController() {
+//		return new BoardItemController();
+//	}
+//	
+//	@Bean
+//	public BoardItemService boardItemService() {
+//		return new BoardItemServiceImpl();
+//	}
+//	
+//	@Bean
+//	public PaginationService paginationService() {
+//		return new PaginationServiceImpl();
+//	}
 }
