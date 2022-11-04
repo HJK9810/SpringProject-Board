@@ -54,8 +54,7 @@ public class BoardItemServiceImpl implements BoardItemService {
 	@Override
 	public List<BoardItem> onePage(int nowPage, int pageSize) {
 		// nowPage : 현 페이지, pageSize : 한 페이지당 아이템수
-		int totaSize = mapper.totalSize();
-		Pagination page = paginationService.getPagination(nowPage, pageSize, totaSize);
+		Pagination page = paginationService.getPagination(nowPage, pageSize);
 
 		return mapper.onePage(page);
 	}

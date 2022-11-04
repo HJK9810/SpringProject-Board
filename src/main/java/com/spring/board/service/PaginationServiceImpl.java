@@ -13,7 +13,7 @@ public class PaginationServiceImpl implements PaginationService {
 	BoardMapper mapper;
 
 	@Override
-	public Pagination getPagination(int nowPage, int PageSize, int totalItems) {
+	public Pagination getPagination(int nowPage, int PageSize) {
 		Pagination pagination = new Pagination();
 
 		pagination.setNumber(nowPage);
@@ -21,7 +21,7 @@ public class PaginationServiceImpl implements PaginationService {
 		pagination.setFist(false);
 		pagination.setLast(false);
 
-		pagination.setTotalPage(totalItems / PageSize + 1);
+		pagination.setTotalPage(mapper.totalSize() / PageSize);
 		
 		if(nowPage == 0) pagination.setFist(true);
 		if(nowPage == pagination.getTotalPage()) pagination.setLast(true);
@@ -32,5 +32,4 @@ public class PaginationServiceImpl implements PaginationService {
 
 		return pagination;
 	}
-
 }

@@ -17,27 +17,27 @@ public class PaginationServiceTest {
 	@Autowired
 	PaginationService paginationService;
 	
-	@Test
-	public void PaginationTest() {
-		Pagination page = paginationService.getPagination(0, 10, 5);
-		
-		assertEquals(page.getTotalPage(), 1);
-		assertEquals(page.isFist(), true);
-		assertEquals(page.isLast(), false);
-		assertEquals(page.getPageSize(), 10);
-		assertEquals(page.getNumber(), 0);
-		assertEquals((long) page.getStartItemID(), 1L);
-	}
+//	@Test
+//	public void PaginationTest() {
+//		Pagination page = paginationService.getPagination(0, 10, 5);
+//		
+//		assertEquals(page.getTotalPage(), 1);
+//		assertEquals(page.isFist(), true);
+//		assertEquals(page.isLast(), false);
+//		assertEquals(page.getPageSize(), 10);
+//		assertEquals(page.getNumber(), 0);
+//		assertEquals((long) page.getStartItemID(), 1L);
+//	}
 	
-	@Test
-	public void PaginationTest2() {
-		Pagination page = paginationService.getPagination(6, 10, 157);
-		
-		assertEquals(page.getTotalPage(), 16);
-		assertEquals(page.isFist(), false);
-		assertEquals(page.isLast(), false);
-		assertEquals(page.getPageSize(), 10);
-		assertEquals(page.getNumber(), 6);
-		assertEquals((long) page.getStartItemID(), 61L);
-	}
+//	@Test
+//	public void PaginationTest2() {
+//		Pagination page = paginationService.getPagination(6, 10, 157);
+//		
+//		assertEquals(page.getTotalPage(), 16);
+//		assertEquals(page.isFist(), false);
+//		assertEquals(page.isLast(), false);
+//		assertEquals(page.getPageSize(), 10);
+//		assertEquals(page.getNumber(), 6);
+//		assertEquals((long) page.getStartItemID(), 61L);
+//	}
 }

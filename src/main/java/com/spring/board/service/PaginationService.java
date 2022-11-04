@@ -7,5 +7,5 @@ import com.spring.board.domain.Pagination;
 @Service
 public interface PaginationService {
 	
-	Pagination getPagination(int nowPage, int PageSize, int totalItems);
+	Pagination getPagination(int nowPage, int PageSize);
 }

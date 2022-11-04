@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.board.domain.BoardItem;
+import com.spring.board.domain.Pagination;
 import com.spring.board.service.BoardItemService;
+import com.spring.board.service.PaginationService;
 
 @Controller
 @RequestMapping("/api")
@@ -24,6 +26,17 @@ public class BoardItemController {
 	
 	@Autowired
 	private BoardItemService service;
+	@Autowired
+	private PaginationService pService;
+	
+	@GetMapping("/{nowPage}")
+	private ResponseEntity<Pagination> setPagination(@PathVariable(name = "nowPage") Integer nowPage) {
+		if(nowPage == null) nowPage = 0;
+		
+		Pagination page = pService.getPagination(nowPage, 10);
+
+        return new ResponseEntity<Pagination>(page, HttpStatus.OK);
+    }
 	
 	@GetMapping(value = {"/lsit/{nowPage}", "/list"})
 	private ResponseEntity<List<BoardItem>> showList(@PathVariable(name = "nowPage", required = false) Integer nowPage) {
