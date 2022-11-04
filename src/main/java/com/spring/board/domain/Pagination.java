@@ -7,6 +7,7 @@ public class Pagination {
 	private Long startItemID; // 현 페이지 시작 아이템 ID
 	private boolean fist; // 첫페이지인가?
 	private boolean last; // 마지막 페이지인가?
+	
 	public int getNumber() {
 		return number;
 	}
