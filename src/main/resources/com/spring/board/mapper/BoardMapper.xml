@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -9,22 +9,23 @@
 	<insert id="dataInput">
 		insert into boardItem(title, text, editer, passwd, date) values (#{title}, #{text}, #{editer}, #{passwd}, #{date})
 	</insert>
-	
+
 	<!-- view one data -->
 	<select id="viewOne" resultType="com.spring.board.domain.BoardItem">
 		select * from boardItem where ID=#{id}
 	</select>
-	
+
 	<!-- view All items -->
 	<select id="onePage" resultType="com.spring.board.domain.BoardItem">
-		select * from boardItem order by ID desc limit #{startItemID}, #{pageSize}
+		select * from boardItem order by ID desc limit
+		#{startItemID}, #{pageSize}
 	</select>
-		
+
 	<!-- update data -->
 	<update id="editOne">
 		update boardItem set title = #{title}, text = #{text}, viewCnt = #{viewCnt} where ID = #{ID}
 	</update>
-	
+
 	<!-- delete data -->
 	<delete id="deleteOne">
 		delete from boardItem where ID = #{ID}
