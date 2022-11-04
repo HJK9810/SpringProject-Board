@@ -26,7 +26,7 @@ public class PaginationServiceImpl implements PaginationService {
 		if(nowPage == 0) pagination.setFist(true);
 		if(nowPage == pagination.getTotalPage()) pagination.setLast(true);
 		
-		Long itemID = (long) (nowPage * PageSize + 1);
+		Long itemID = (long) (nowPage * PageSize);
 		
 		pagination.setStartItemID(itemID);
 

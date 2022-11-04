@@ -12,6 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.spring.board.domain.BoardItem;
+import com.spring.board.domain.Pagination;
+import com.spring.board.service.PaginationService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -19,6 +21,8 @@ public class BoardMapperTest {
      
      @Autowired
      private BoardMapper mapper;
+     @Autowired
+     private PaginationService paginationService;
  
 //     @Test
 //     public void testEnroll() {
@@ -65,7 +69,9 @@ public class BoardMapperTest {
      
      @Test
      public void ListTest() {
-    	 List<BoardItem> list = mapper.onePage();
+    	 Pagination page = paginationService.getPagination(0, 10, mapper.totalCount());
+    	 
+    	 List<BoardItem> list = mapper.onePage(page);
     	 for(BoardItem item : list) {
     		 System.out.println(item.toString());
     	 }

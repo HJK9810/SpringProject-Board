@@ -23,7 +23,7 @@
 	<!-- view All items -->
 	<!-- after will apply pagination not now -->
 	<select id="onePage" resultType="com.spring.board.domain.BoardItem">
-		select * from boardItem
+		select * from boardItem order by ID desc limit #{startItemID}, #{pageSize}
 	</select>
 		
 	<!-- update data -->

@@ -56,7 +56,7 @@ public class BoardItemServiceImpl implements BoardItemService {
 		// nowPage : 현 페이지, pageSize : 한 페이지당 아이템수
 		Pagination page = paginationService.getPagination(nowPage, pageSize, mapper.totalCount());
 
-		return mapper.onePage();
+		return mapper.onePage(page);
 	}
 
 }

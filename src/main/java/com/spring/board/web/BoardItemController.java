@@ -27,7 +27,7 @@ public class BoardItemController {
 	
 	@GetMapping(value = {"/lsit/{nowPage}", "/list"})
 	private ResponseEntity<List<BoardItem>> showList(@PathVariable(name = "nowPage", required = false) Integer nowPage) {
-		if(nowPage == null) nowPage = 1;
+		if(nowPage == null) nowPage = 0;
 		
         List<BoardItem> page = service.onePage(nowPage, 10);
         return new ResponseEntity<List<BoardItem>>(page, HttpStatus.OK);
