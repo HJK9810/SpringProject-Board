@@ -69,7 +69,7 @@ public class BoardMapperTest {
      
      @Test
      public void ListTest() {
-    	 Pagination page = paginationService.getPagination(0, 10, mapper.totalSize());
+    	 Pagination page = paginationService.getPagination(0, 10);
     	 
     	 List<BoardItem> list = mapper.onePage(page);
     	 for(BoardItem item : list) {

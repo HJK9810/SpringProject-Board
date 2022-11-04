@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.board.domain.BoardItem;
 import com.spring.board.domain.Pagination;
@@ -29,20 +30,16 @@ public class BoardItemController {
 	@Autowired
 	private PaginationService pService;
 	
-	@GetMapping("/{nowPage}")
-	private ResponseEntity<Pagination> setPagination(@PathVariable(name = "nowPage") Integer nowPage) {
-		if(nowPage == null) nowPage = 0;
-		
-		Pagination page = pService.getPagination(nowPage, 10);
+	@GetMapping("/page") // for pagination
+	private ResponseEntity<Pagination> setPagination(@RequestParam(value = "page") int nowPage, @RequestParam(value = "size") int size) {
+		Pagination page = pService.getPagination(nowPage, size);
 
         return new ResponseEntity<Pagination>(page, HttpStatus.OK);
     }
 	
-	@GetMapping(value = {"/lsit/{nowPage}", "/list"})
-	private ResponseEntity<List<BoardItem>> showList(@PathVariable(name = "nowPage", required = false) Integer nowPage) {
-		if(nowPage == null) nowPage = 0;
-		
-        List<BoardItem> page = service.onePage(nowPage, 10);
+	@GetMapping("/list")
+	private ResponseEntity<List<BoardItem>> showList(@RequestParam(value = "page") int nowPage, @RequestParam(value = "size") int size) {
+        List<BoardItem> page = service.onePage(nowPage, size);
         return new ResponseEntity<List<BoardItem>>(page, HttpStatus.OK);
     }
 	
