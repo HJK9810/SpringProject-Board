@@ -148,6 +148,14 @@
             <artifactId>spring-jdbc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
+        
+        <!-- Lombok -->
+        <dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<scope>provided</scope>
+		</dependency>
  
         <!-- Spring-test -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
@@ -174,6 +182,25 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring-security.version}</version>
+		</dependency>
+		
+		<!-- for modify springSecurityFilterChain -->
+		<dependency>
+		  <groupId>com.sun.xml.bind</groupId>
+		  <artifactId>jaxb-core</artifactId>
+		  <version>2.3.0.1</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>javax.xml.bind</groupId>
+		  <artifactId>jaxb-api</artifactId>
+		  <version>2.3.1</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.sun.xml.bind</groupId>
+		  <artifactId>jaxb-impl</artifactId>
+		  <version>2.3.1</version>
 		</dependency>
 	</dependencies>
     <build>

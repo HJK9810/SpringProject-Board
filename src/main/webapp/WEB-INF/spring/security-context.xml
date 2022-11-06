@@ -14,8 +14,8 @@
         <authentication-manager>
             <authentication-provider>
                 <user-service>
-                    <user name="user" password="user" authorities="ROLE_USER"/>
-                    <user name="guest" password="guest" authorities="ROLE_GUEST"/>
+                    <user name="user" password="{noop}user" authorities="ROLE_USER"/>
+                    <user name="guest" password="{noop}guest" authorities="ROLE_GUEST"/>
                 </user-service>
             </authentication-provider>
         </authentication-manager>
