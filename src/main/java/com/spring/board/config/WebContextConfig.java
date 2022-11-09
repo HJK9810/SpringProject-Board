@@ -19,7 +19,6 @@ public class WebContextConfig implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext servletAppContext = new AnnotationConfigWebApplicationContext();
 		// set root servlet for use all servlets & filters
 		servletAppContext.register(new Class[] { WebSecurityConfig.class, ServletContextConfig.class });
-//		servletAppContext.register();
 		// set dispacher servlet1
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(servletAppContext);
 		ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", dispatcherServlet);
@@ -36,10 +35,13 @@ public class WebContextConfig implements WebApplicationInitializer {
 		servletContext.addListener(listener);
 
 		// for character encoding for utf-8
-		FilterRegistration encoding = servletContext.addFilter("CharacterEncodingFilter", CharacterEncodingFilter.class);
+		FilterRegistration encoding = servletContext.addFilter("CharacterEncodingFilter",
+				CharacterEncodingFilter.class);
 		encoding.setInitParameter("encoding", "UTF-8");
 		encoding.setInitParameter("forceEncoding", "true");
 		encoding.addMappingForUrlPatterns(null, true, "/*");
+
+//		servletAppContext.register(ServletContextConfig.class);
 	}
 
 }
