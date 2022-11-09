@@ -20,9 +20,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin();
 //		http.csrf().disable();
-		http.authorizeRequests().anyRequest().authenticated().and().formLogin()// Form 로그인 인증 기능이 작동함
-				.defaultSuccessUrl("/**", true).permitAll().and().logout();
+//		http.authorizeRequests().anyRequest().authenticated().and().formLogin()// Form 로그인 인증 기능이 작동함
+//				.defaultSuccessUrl("/**", true).permitAll().and().logout();
 //		http.authorizeRequests().antMatchers("/login").permitAll()
 //				.antMatchers("/", "/api/one/**").hasRole("USER").anyRequest().authenticated(); // 일반사용자 접근 가능
 //		// 인증 필요시 로그인 페이지와 로그인 성공시 리다이랙팅 경로 지정
@@ -38,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// basic user & guest setting
-		auth.inMemoryAuthentication().withUser("user").password("{noop}user").roles("USER");
-		auth.inMemoryAuthentication().withUser("guest").password("{noop}guest").roles("GUEST");
+		auth.inMemoryAuthentication().withUser("user").password("{noop}user").roles("USER")
+				.and().withUser("guest").password("{noop}guest").roles("GUEST");
 	}
 }
