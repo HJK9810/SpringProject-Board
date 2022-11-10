@@ -18,6 +18,7 @@ public class WebContextConfig implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext servletAppContext = new AnnotationConfigWebApplicationContext();
 		// set root servlet for use all servlets & filters
+//		servletAppContext.register(WebSecurityConfig.class);
 		servletAppContext.register(new Class[] { WebSecurityConfig.class, ServletContextConfig.class });
 		// set dispacher servlet1
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(servletAppContext);

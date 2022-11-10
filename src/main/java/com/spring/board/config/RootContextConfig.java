@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @MapperScan("com.spring.board.mapper")
-@ComponentScans(value = { @ComponentScan("com.spring.board.service"), @ComponentScan("com.spring.board.service") })
+@ComponentScans(value = { @ComponentScan("com.spring.board.service"), @ComponentScan("com.spring.board.domain") })
 public class RootContextConfig {
 	
 	@Bean // db connect
