@@ -51,10 +51,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		System.out.println("set url");
 //		http.authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
 //				.formLogin(formLogin -> formLogin.loginPage("/login").permitAll());
-		http.formLogin();
-		http.authorizeRequests().anyRequest().authenticated();
-		
-		
+//		http.formLogin();
+//		http.authorizeRequests().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/**").hasRole("USER")
+			.antMatchers("/favicon.ico").hasRole("ANONYMOUS")
+			.and().formLogin();	
 		
 //		http.authorizeRequests().antMatchers("/**").hasRole("USER").anyRequest().authenticated();
 //		System.out.println("set user security");
