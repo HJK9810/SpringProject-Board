@@ -51,19 +51,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		System.out.println("set url");
 //		http.authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
 //				.formLogin(formLogin -> formLogin.loginPage("/login").permitAll());
-		http.authorizeRequests().antMatchers("/**").hasRole("USER").anyRequest().authenticated();
-		System.out.println("set user security");
+		http.formLogin();
+		http.authorizeRequests().anyRequest().authenticated();
+		
+		
+		
+//		http.authorizeRequests().antMatchers("/**").hasRole("USER").anyRequest().authenticated();
+//		System.out.println("set user security");
 //		http.formLogin().defaultSuccessUrl("/").permitAll();
 //		System.out.println("allow login");
 //		http.logout();
-		System.out.println("url load");
+//		System.out.println("url load");
 	}
 
 	@Bean
 	public UserDetailsService userDetailsService() {
 		System.out.println("set basic user");
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		manager.createUser(User.withUsername("user").password("{noop}user").roles("USER").build());
+		manager.createUser(User.withUsername("user").password("{noop}user").authorities("USER").build());
 		return manager;
 	}
 
