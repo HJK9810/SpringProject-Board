@@ -14,11 +14,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import lombok.RequiredArgsConstructor;
+
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class WebSecurityConfig {
 
 	private static final Logger log = LoggerFactory.getLogger(WebSecurityConfig.class);
@@ -37,7 +39,9 @@ public class WebSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		System.out.println("set url");
 //		http.formLogin(withDefaults());
-		http.authorizeHttpRequests((authz) -> authz.anyRequest().authenticated()).formLogin(withDefaults());
+//		http.authorizeHttpRequests((authz) -> authz.anyRequest().authenticated()).formLogin(withDefaults());
+		http.authorizeRequests(authorize -> authorize.anyRequest().authenticated()).formLogin(withDefaults())
+				.httpBasic(withDefaults());
 		return http.build();
 	}
 
