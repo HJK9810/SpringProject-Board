@@ -3,6 +3,7 @@ package com.spring.board.mapper;
 import java.util.List;
 
 import com.spring.board.domain.BoardItem;
+import com.spring.board.domain.Member;
 import com.spring.board.domain.Pagination;
 
 public interface BoardMapper {
@@ -14,4 +15,6 @@ public interface BoardMapper {
 	public int deleteOne(Long id);
 	
 	public int totalSize();
+	
+	public Member findUser(String user);
 }

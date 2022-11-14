@@ -35,4 +35,9 @@
 	<select id="totalSize" resultType="int">
 		select count(*) from boardItem
 	</select>
+	
+	<!-- find user -->
+	<select id="findUser">
+		select * from member where = #{user}
+	</select>
 </mapper>

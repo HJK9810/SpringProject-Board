@@ -40,8 +40,12 @@ public class WebSecurityConfig {
 		System.out.println("set url");
 //		http.formLogin(withDefaults());
 //		http.authorizeHttpRequests((authz) -> authz.anyRequest().authenticated()).formLogin(withDefaults());
-		http.authorizeRequests(authorize -> authorize.anyRequest().authenticated()).formLogin(withDefaults())
-				.httpBasic(withDefaults());
+//		http.authorizeRequests(authorize -> authorize.anyRequest().authenticated()).formLogin(withDefaults())
+//				.httpBasic(withDefaults());
+		http.authorizeRequests().antMatchers("/**").hasRole("USER")
+		.antMatchers("/favicon.ico").hasRole("ANONYMOUS")
+		.and().formLogin();
+		
 		return http.build();
 	}
 
